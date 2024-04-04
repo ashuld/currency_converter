@@ -1,10 +1,14 @@
+import 'package:currency_converter/controller/currency_controller.dart';
 import 'package:currency_converter/controller/currency_picker_controller.dart';
 import 'package:currency_converter/view/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
+  Get.put(CurrencyConverterController());
   Get.put(CurrencyPickerController());
   runApp(const MyApp());
 }

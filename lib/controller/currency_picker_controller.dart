@@ -21,10 +21,18 @@ class CurrencyPickerController extends GetxController {
 
   void updateConvertFrom(
       {required String code, required String symbol, required Currency flag}) {
-    _convertFrom.value = code;
-    _convertFromSymbol.value = symbol;
-    _convertFromFlag.value = CurrencyUtils.currencyToEmoji(flag);
-    log(_convertFromFlag.value);
+    if (_convertTo.value == code) {
+      Get.snackbar(
+          margin: const EdgeInsets.all(10),
+          snackPosition: SnackPosition.TOP,
+          'Action Denied',
+          'Cannot choose same Currency');
+    } else {
+      _convertFrom.value = code;
+      _convertFromSymbol.value = symbol;
+      _convertFromFlag.value = CurrencyUtils.currencyToEmoji(flag);
+      log(_convertFromFlag.value);
+    }
   }
 
   void updateConvertTo(
