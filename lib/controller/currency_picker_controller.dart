@@ -32,7 +32,7 @@ class CurrencyPickerController extends GetxController {
     if (_convertFrom.value == code) {
       Get.snackbar(
           margin: const EdgeInsets.all(10),
-          snackPosition: SnackPosition.BOTTOM,
+          snackPosition: SnackPosition.TOP,
           'Action Denied',
           'Cannot choose same Currency');
     } else {
